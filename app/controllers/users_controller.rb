@@ -5,14 +5,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        session[:user_id] = @user.id
-        format.json { render json: @user }
+        format.html { redirect_to @user, notice: 'You were successfully signed up' }
+        format.json { render :show, status: :created, location: @task }
       else
-        format.json { render status: 406 }
-        render 'new'
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

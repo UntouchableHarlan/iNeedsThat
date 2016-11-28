@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $("#signup-link").on('click', function(e) {
+    e.preventDefault();
+    console.log('clicked');
+    $('#signupModal').modal('toggle');
+  });
+
+  $("#new_user").on('submit', function(e) {
+    e.preventDefault();
+    console.log('trying to send form');
+    $.ajax({
+      type: $(this).attr('method'),
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      success: function(res) {
+        console.log(res);
+        $('#signupModal').modal('hide');
+        // location.reload();
+      }
+    })
+  })
+});
