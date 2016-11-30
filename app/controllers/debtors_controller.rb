@@ -9,6 +9,7 @@ class DebtorsController < ApplicationController
       if @debtor.save
         format.json { render json: @debtor }
       else
+        format.html {render 'new'}
         format.json { render json: @debtor.errors }
       end
     end

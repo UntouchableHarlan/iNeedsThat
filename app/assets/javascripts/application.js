@@ -70,7 +70,15 @@ $(document).ready(function() {
       data: $(this).serialize(),
       success: function(res) {
         console.log(res);
-        console.log(this);
+        console.log(res.name);
+        console.log(res.amount);
+        var name = res.name;
+        var amount = res.amount;
+
+        html = "<div class='col-md-3' id='owe-me-card'><div class='card'><div class='card-block'><h4 class='card-title'>" + name + ": $" + amount + "</h4><p class='card-text'>Some Text Saying Why The Person Owed You</p><a href='#' class='btn btn-primary'>Paid</a></div></div></div>"
+
+        console.log(html);
+        $(".owes").append(html);
       }
     })
   })
