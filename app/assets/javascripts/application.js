@@ -44,16 +44,35 @@ $(document).ready(function() {
     $('#signupModal').modal('toggle');
   });
 
+
   $("#login-link").on('click', function(e) {
     e.preventDefault();
     console.log('clicked');
     $('#loginModal').modal('toggle');
   })
 
+
+
   $("#login-button").on('click', function(e) {
     e.preventDefault();
     console.log('clicked');
     $('#loginModal').modal('toggle');
   });
+
+
+
+  $('#new_debtor').on('submit', function(e) {
+    e.preventDefault();
+    console.log("trying to send form");
+    $.ajax({
+      type: $(this).attr('method'),
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
+      success: function(res) {
+        console.log(res);
+        console.log(this);
+      }
+    })
+  })
 
 });
