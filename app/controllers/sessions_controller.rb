@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-  
+
   def new
+    @user = User.new
   end
 
   def create
@@ -8,10 +9,11 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
-        format.json { render json: @user }
+        format.html { redirect_to root_path, notice: 'You were successfully logged in' }
+        format.json { render :show, status: :created, location: @user }
       else
-        format.json {render json: 406 }
-        render 'new'
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

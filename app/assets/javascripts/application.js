@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-3.1.1.min
+//= require bootstrap.min
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
@@ -32,8 +33,27 @@ $(document).ready(function() {
       success: function(res) {
         console.log(res);
         $('#signupModal').modal('hide');
-        // location.reload();
+        location.reload();
       }
     })
   })
+
+  $("#signup-buttonn").on('click', function(e) {
+    e.preventDefault();
+    console.log('clicked');
+    $('#signupModal').modal('toggle');
+  });
+
+  $("#login-link").on('click', function(e) {
+    e.preventDefault();
+    console.log('clicked');
+    $('#loginModal').modal('toggle');
+  })
+
+  $("#login-button").on('click', function(e) {
+    e.preventDefault();
+    console.log('clicked');
+    $('#loginModal').modal('toggle');
+  });
+
 });

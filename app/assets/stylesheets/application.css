@@ -30,8 +30,13 @@ body {
   background-position: center;
   background-size: cover;
   padding-bottom: 29%;
+  padding-top: 7% !important;
 }
 
 .header-text {
   color: antiquewhite;
+}
+
+#debtor_name {
+  width: 240% !important;
 }

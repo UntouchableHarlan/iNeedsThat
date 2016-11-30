@@ -1,12 +1,31 @@
+<% if current_user %>
+  <div class="container" style="padding-top: 2%;">
+    <%= render "debtors/debtorForm" %>
+    <% if @debtors %>
+      <% @debtors.each do |person| %>
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">person.name</h4>
+            <p class="card-text">Some Text Saying Why The Person Owed You</p>
+            <a href="#" class="btn btn-primary">Paid</a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
 <div class="header" style="text-align: center; padding-top: 2%;">
   <h1 class="header-text">Keep Track of Who Owe You!</h1>
   <p class="header-text">
     A wise man once said "Need my bread on time, don't care if you owe me 50 cents"
   </p>
-  <p>
-    <%= link_to 'Sign Up', signup_path, class: 'btn btn-success'%>
-  </p>
-  <p>
-
-  </p>
+  <div class="header-buttons">
+    <p>
+      <%= link_to 'Sign Up', signup_path, class: "btn btn-success", id: "signup-buttonn"%>
+    </p>
+    <p>
+      <%= link_to 'Log In', logout_path, class: "btn btn-primary", id: "login-button"%>
+    </p>
+  </div>
 </div>
+<% end %>
