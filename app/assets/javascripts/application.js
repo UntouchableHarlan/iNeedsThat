@@ -71,6 +71,7 @@ $(document).ready(function() {
       url: $(this).attr('action'),
       data: $(this).serialize(),
       success: function(res) {
+        $('#owe-btn').disabled = false;
         console.log(res);
         console.log(res.name);
         console.log(res.amount);
@@ -78,7 +79,7 @@ $(document).ready(function() {
         var amount = res.amount;
         var desc = res.description;
 
-        var html = "<div class='col-md-3' id='owe-me-card'><div class='card'><div class='card-block'><h4 class='card-title'>" + name + ": $" + amount + "</h4><p class='card-text'>" + desc + "</p><a href='#' class='btn btn-danger'>Paid Me</a></div></div></div>"
+        var html = "<div class='col-md-3' id='owe-me-card'><div class='card'><div class='card-block'><h4 class='card-title'>" + name + " - $" + amount + "</h4><p class='card-text'>" + desc + "</p><a href='#' class='btn btn-danger'>Paid Me</a></div></div></div>"
 
         console.log(html);
         $("#get-paid").append(html);

@@ -20,17 +20,19 @@ body {
 }
 
 .nav-link, .navbar-brand {
-  color: grey !important;
+  color: white !important;
 }
 
-.header {
-  background-image: url('bread.jpg');
+.page-header {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(thebreadb.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  padding-bottom: 29%;
-  padding-top: 7% !important;
+  width: 100%;
+  /*padding-bottom: 29%;*/
+  /*padding-top: 7% !important;*/
+  height: 530px;
 }
 
 .header-text {
@@ -43,7 +45,7 @@ body {
 
 #owe-me-card {
   /*padding-top: 1%;*/
-  
+
 }
 
 #owe-btn {

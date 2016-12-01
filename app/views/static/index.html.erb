@@ -8,7 +8,7 @@
       <div class='col-md-3' id='owe-me-card'>
         <div class='card'>
           <div class='card-block'>
-            <h4 class='card-title'><%= person.name %>: $<%= person.amount %></h4>
+            <h4 class='card-title'><%= person.name %> - $<%= person.amount %></h4>
             <p class='card-text'><%= person.description %></p>
             <%= link_to "Paid Me", user_debtor_path(current_user, person), method: :delete, remote: true, class: "btn btn-danger", id: "paid-me"%>
           </div>
@@ -18,18 +18,12 @@
     <% end %> <!-- each with person -->
    <% end %>  <!-- if debtors -->
 <% else %>
-<div class="header" style="text-align: center; padding-top: 2%;">
-  <h1 class="header-text">Keep Track of Who Owe You!</h1>
-  <p class="header-text">
-    A wise man once said "Need my bread on time, don't care if you owe me 50 cents"
-  </p>
-  <div class="header-buttons">
-    <p>
-      <%= link_to 'Sign Up', signup_path, class: "btn btn-success", id: "signup-buttonn"%>
-    </p>
-    <p>
-      <%= link_to 'Log In', logout_path, class: "btn btn-primary", id: "login-button"%>
-    </p>
+<div class="page-header" style="padding-top: 5px;">
+  <div class="content">
+    <h1 style="color: azure; text-align: center;">Your Virtual Debt Book</h1>
+    <h3 style="color: azure; text-align: center;">
+      Never Lose Track of Who Owe You!
+    </h3>
   </div>
 </div>
 <% end %>

@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_for [current_user, @debtor], class: "form-inline", id: "debtor-form" do |f| %>
-  <div class="col-md-12">
+  <div class="col-md-12" style="display: flex; justify-content: center;">
     <div class="col-md-6">
       <div class="form-group">
         <!-- <label for="name-field">Name</label> -->
@@ -19,16 +19,12 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <%= f.text_area :description, class: "form-control", placeholder: "Why You Needs That..." %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12" style="display: flex; justify-content: center;">
       <%= f.submit "You Needs That From Em", class: "btn btn-success", id: "owe-btn" %>
     </div>
-  </div>
 
   <% end %>
 </div>
