@@ -40,3 +40,13 @@ body {
 #debtor_name {
   width: 100% !important;
 }
+
+#owe-me-card {
+  /*padding-top: 1%;*/
+  
+}
+
+#owe-btn {
+  display: flex;
+  margin-top: 16px;
+}

@@ -15,9 +15,18 @@ class DebtorsController < ApplicationController
     end
   end
 
+  def destroy
+    @debtor = Debtor.find(params[:id])
+    @debtor.destroy
+    respond_to do |format|
+      format.html {redirect_to root_path, success: 'Product destroyed successfully'}
+      format.json { render json: @debtor }
+    end
+  end
+
   private
 
   def debtor_params
-    params.require(:debtor).permit(:name, :amount)
+    params.require(:debtor).permit(:name, :amount, :description)
   end
 end

@@ -1,16 +1,16 @@
 <% if current_user %>
-  <div class="container" style="padding-top: 2%;">
+  <div class="container" style="padding-top: 2%; padding-bottom: 2%;">
     <%= render "debtors/debtorForm" %>
   </div>
   <% if @debtors %>
-    <% @debtors.each do |person| %>
-    <div class="owes">
+    <% @debtors.each_with_index do |person, i| %>
+    <div class="owes<%= i %>" id="get-paid">
       <div class='col-md-3' id='owe-me-card'>
         <div class='card'>
           <div class='card-block'>
             <h4 class='card-title'><%= person.name %>: $<%= person.amount %></h4>
-            <p class='card-text'>Some Text Saying Why The Person Owed You</p>
-            <a href='#' class='btn btn-primary'>Paid</a>
+            <p class='card-text'><%= person.description %></p>
+            <%= link_to "Paid Me", user_debtor_path(current_user, person), method: :delete, remote: true, class: "btn btn-danger", id: "paid-me"%>
           </div>
         </div>
       </div>

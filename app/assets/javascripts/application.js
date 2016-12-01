@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require turbolinks
 //= require jquery-3.1.1.min
 //= require bootstrap.min
 //= require jquery_ujs
@@ -64,6 +65,7 @@ $(document).ready(function() {
   $('#new_debtor').on('submit', function(e) {
     e.preventDefault();
     console.log("trying to send form");
+    var m = $(this);
     $.ajax({
       type: $(this).attr('method'),
       url: $(this).attr('action'),
@@ -74,13 +76,32 @@ $(document).ready(function() {
         console.log(res.amount);
         var name = res.name;
         var amount = res.amount;
+        var desc = res.description;
 
-        html = "<div class='col-md-3' id='owe-me-card'><div class='card'><div class='card-block'><h4 class='card-title'>" + name + ": $" + amount + "</h4><p class='card-text'>Some Text Saying Why The Person Owed You</p><a href='#' class='btn btn-primary'>Paid</a></div></div></div>"
+        var html = "<div class='col-md-3' id='owe-me-card'><div class='card'><div class='card-block'><h4 class='card-title'>" + name + ": $" + amount + "</h4><p class='card-text'>" + desc + "</p><a href='#' class='btn btn-danger'>Paid Me</a></div></div></div>"
 
         console.log(html);
-        $(".owes").append(html);
+        $("#get-paid").append(html);
+        console.log($('#owe-btn'));
+        $('#owe-btn').disabled = false;
       }
     })
+  });
+
+  $("#paid-me").on('click', function(e) {
+    e.preventDefault();
+    console.log("clicked");
+    var p = $(this);
+    $.ajax({
+      type: 'DELETE',
+      url: $(this).href,
+      success: function(res) {
+        console.log(res);
+        var div = p.parent().parent().parent().parent()
+        div.fadeOut(1000)
+        div.remove();
+      }
+    });
   })
 
 });
