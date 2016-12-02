@@ -35,6 +35,9 @@ $(document).ready(function() {
         console.log(res);
         $('#signupModal').modal('hide');
         location.reload();
+      },
+      error: function(res) {
+        console.log(res.responseText);
       }
     })
   })
