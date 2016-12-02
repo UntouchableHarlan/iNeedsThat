@@ -16,7 +16,7 @@
  */
 
 body {
-  padding-top: 3%;
+
 }
 
 .nav-link, .navbar-brand {
@@ -26,7 +26,6 @@ body {
 .page-header {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(thebreadb.jpg);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -48,7 +47,21 @@ body {
 
 }
 
+.modal-content {
+  background-color: #32CD32 !important;
+}
+
 #owe-btn {
   display: flex;
   margin-top: 16px;
+}
+
+#signup-button {
+  background-color: white;
+  color: #5cb85c;
+}
+
+#logs {
+  background-color: white;
+  color: #5cb85c;
 }
