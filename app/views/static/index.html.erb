@@ -9,7 +9,10 @@
         <div class='card'>
           <div class='card-block'>
             <h4 class='card-title'><%= person.name %> - $<%= person.amount %></h4>
-            <p class='card-text'><%= person.description %></p>
+            <p class='card-text'><%= person.description %>
+              <br>
+               <%= render 'debtors/debtorUpdate' %>
+            </p>
             <%= link_to "Paid Me", user_debtor_path(current_user, person), method: :delete, remote: true, class: "btn btn-danger", id: "paid-me"%>
           </div>
         </div>

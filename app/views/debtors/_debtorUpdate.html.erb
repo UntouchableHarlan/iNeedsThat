@@ -1,0 +1,16 @@
+<%= form_for [current_user, @debtorr], :html => {:id => "update-form"}, method: :put do |f| %>
+<div class="col-md-12" style="display: flex; justify-content: center;">
+  <div class="col-md-3" style="display: flex; justify-content: flex-end;">
+    <div class="form-group">
+      <!-- <label for="number-field">Amount</label> -->
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <%= f.number_field :amount, class: "form-control", placeholder: "Amount Funded💸.....", id: "update-fd" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <%= f.submit "Amount Left", class: "btn btn-success btn-sm", id: "update-btn" %>
+  </div>
+</div>
+<% end %>

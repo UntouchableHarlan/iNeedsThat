@@ -15,11 +15,22 @@ class DebtorsController < ApplicationController
     end
   end
 
+  def update
+    @debtor = Debtor.find(params[:id])
+    respond_to do |format|
+      if @debtor.update(debtor_params)
+        format.json { render json: @debtor }
+      else
+        format.json { render json: @debtor.errors.messages }
+      end
+    end
+  end
+
   def destroy
     @debtor = Debtor.find(params[:id])
     @debtor.destroy
     respond_to do |format|
-      format.html {redirect_to root_path, success: 'Product destroyed successfully'}
+      # format.html {redirect_to root_path, success: 'Product destroyed successfully'}
       format.json { render json: @debtor }
     end
   end

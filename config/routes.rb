@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
+  get 'paying' => 'debtors#update'
 
   resources :users do
     resources :debtors

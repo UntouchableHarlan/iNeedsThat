@@ -108,4 +108,30 @@ $(document).ready(function() {
     });
   })
 
+
+  // Updating the amount on someones debt
+  $("#update-form").on('submit', function(e) {
+    e.preventDefault();
+    console.log("updating...");
+    var me = $(this)
+    $.ajax({
+      type: 'PATCH',
+      url: me.attr('action'),
+      data: me.serialize(),
+      success: function(res) {
+        console.log('success');
+        console.log(res.amount);
+        var a = res.amount;
+        var prevAmount = me.parent()[0].children[0].innerHTML.split("-")[1]
+        me.parent()[0].children[0].fadeOut('slow', function() {
+          prevAmount.replace(prevAmount, a);
+          me.parent()[0].children[0].fadeIn('slow')
+        })
+      },
+      error: function(res) {
+        console.log(res);
+      }
+    })
+  })
+
 });

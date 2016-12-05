@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'You were successfully signed up' }
+        # format.html { redirect_to @user, notice: 'You were successfully signed up' }
         format.json { render :show, status: :created, location: @user }
       else
         format.json { render json: @user.errors.messages, status: :unprocessable_entity }
